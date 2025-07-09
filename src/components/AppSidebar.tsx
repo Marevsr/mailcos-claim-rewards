@@ -1,11 +1,10 @@
 
-import { Home, Gift, ChevronDown, User2 } from "lucide-react";
+import { Home, Gift, ChevronDown, Coins } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -26,7 +25,7 @@ export function AppSidebar() {
         <div className="p-6 pb-4">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-lg gradient-purple flex items-center justify-center animate-float">
-              <User2 className="w-6 h-6 text-white" />
+              <Coins className="w-6 h-6 text-white" />
             </div>
             <h1 className="text-2xl font-bold bg-gradient-to-r from-mailcos-blue to-mailcos-purple bg-clip-text text-transparent">
               Mailcos

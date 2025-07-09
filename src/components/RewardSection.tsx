@@ -2,8 +2,6 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Shield, Gift, Eye, Dice1 } from "lucide-react";
 
 interface RewardSectionProps {
   title: string;
@@ -12,17 +10,13 @@ interface RewardSectionProps {
 }
 
 export function RewardSection({ title, icon, iconColor }: RewardSectionProps) {
-  const [captcha, setCaptcha] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async () => {
-    if (!captcha.trim()) return;
-    
     setIsSubmitting(true);
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
     setIsSubmitting(false);
-    setCaptcha("");
     
     // Show success feedback
     alert(`Recompensa "${title}" reivindicada com sucesso!`);
@@ -39,26 +33,17 @@ export function RewardSection({ title, icon, iconColor }: RewardSectionProps) {
         </div>
         
         <div className="space-y-4">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Shield className="w-4 h-4" />
-            <span>Verificação Humana</span>
+          <div className="w-full h-32 border-2 border-gray-200 rounded-lg bg-gray-50 flex items-center justify-center">
+            <span className="text-gray-400 text-sm">Espaço para captcha</span>
           </div>
           
-          <div className="flex gap-2">
-            <Input
-              placeholder="Digite o captcha..."
-              value={captcha}
-              onChange={(e) => setCaptcha(e.target.value)}
-              className="flex-1 border-2 border-gray-200 focus:border-mailcos-blue transition-colors"
-            />
-            <Button
-              onClick={handleSubmit}
-              disabled={!captcha.trim() || isSubmitting}
-              className="gradient-button text-white font-medium px-6 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? "Enviando..." : "Submeter"}
-            </Button>
-          </div>
+          <Button
+            onClick={handleSubmit}
+            disabled={isSubmitting}
+            className="w-full gradient-button text-white font-medium py-3 hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isSubmitting ? "Enviando..." : "Submeter"}
+          </Button>
         </div>
       </CardContent>
     </Card>
