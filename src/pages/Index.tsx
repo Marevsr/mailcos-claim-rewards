@@ -1,13 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { AppLayout } from "@/components/AppLayout";
+import { AlertBox } from "@/components/AlertBox";
+import { RewardSection } from "@/components/RewardSection";
+import { Gift, Eye, Dice1 } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <AppLayout>
+      <div className="max-w-4xl mx-auto space-y-6">
+        <AlertBox />
+        
+        <div className="grid gap-6">
+          <RewardSection
+            title="Ganhar inscrito"
+            icon={<Gift className="w-6 h-6 text-white" />}
+            iconColor="bg-gradient-to-r from-green-500 to-green-600"
+          />
+          
+          <RewardSection
+            title="Ganhar 5 visualizações"
+            icon={<Eye className="w-6 h-6 text-white" />}
+            iconColor="bg-gradient-to-r from-blue-500 to-blue-600"
+          />
+          
+          <RewardSection
+            title="Gerar número de sorteio"
+            icon={<Dice1 className="w-6 h-6 text-white" />}
+            iconColor="bg-gradient-to-r from-purple-500 to-purple-600"
+          />
+        </div>
       </div>
-    </div>
+    </AppLayout>
   );
 };
 
